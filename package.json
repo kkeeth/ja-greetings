@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "'Ja-greetings' is a cli tool that displays Japanese greetings",
   "main": "index.js",
-  "devDependencies": {},
+  "bin": "cli.js",
   "scripts": {
     "test": "test"
   },

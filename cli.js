@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const argv = process.argv
 for (let i = 2; i < argv.length; i++) {
    if (argv[i] === 'list')
