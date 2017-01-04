@@ -16,7 +16,6 @@ function greet(item) {
 function list_greetings() {
    require('./index').list((err, list) => {
       if (err) throw new Error(err)
-      console.log('greeting lists:');
-      console.log(list.join('  '))
+      console.log(list.join("\n"))
    })
 }
