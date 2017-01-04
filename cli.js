@@ -5,6 +5,7 @@ for (let i = 2; i < argv.length; i++) {
    else
       greet(argv[i])
 }
+if (argv.length === 2) console.log('Please select an option!!')
 
 function greet(item) {
    let module = require('./index')
