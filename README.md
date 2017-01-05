@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/k-kuwahara/ja-greetings.svg?branch=master)](https://travis-ci.org/k-kuwahara/ja-greetings)
+
 # ja-greetings
 ```
             あ
@@ -20,6 +22,7 @@
 ```
 $ npm i ja-greetings
 ```
+※The corresponding version of nodejs is version 6 or higher!
 
 ## License
 [MIT](https://github.com/k-kuwahara/ja-greetings/blob/master/LICENSE)
