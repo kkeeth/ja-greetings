@@ -24,5 +24,23 @@ $ npm i ja-greetings
 ```
 ※The corresponding version of nodejs is version 6 or higher!
 
+## How to use
+
+
+Please add the following to `package.json`.
+```
+…
+  "scripts": {
+    "greet": "ja-greetings"
+  },
+…
+```
+
+
+Just run the command! (the following is an example)
+```
+$ npm run greet new
+```
+
 ## License
 [MIT](https://github.com/k-kuwahara/ja-greetings/blob/master/LICENSE)
