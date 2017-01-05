@@ -3,5 +3,5 @@ const greetings = require('./lib/greetings')
 
 exports.list = greetings.list
 exports.greet = (item) => {
-   return greetings.get(item)
+   return format(greetings.get(item))
 }
