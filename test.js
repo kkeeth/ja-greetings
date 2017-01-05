@@ -10,7 +10,7 @@ test('select one option', t => {
 })
 
 test('select multi options', t => {
-   const opts = ['new', 'last', 'hoge']
+   const opts = ['new', 'last', 'summer', 'winter', 'hoge']
 
    // error check
    t.is(greetings.get(opts), 'Not found <' + opts.join(',') + '> greeting')
@@ -20,8 +20,10 @@ test('show option list', t => {
    const list = greetings.list()
 
    // error check
-   t.is(list.length, 2)
+   t.is(list.length, 4)
    t.true(list.indexOf('new') >= 0)
+   t.true(list.indexOf('summer') >= 0)
+   t.true(list.indexOf('winter') >= 0)
    t.true(list.indexOf('last') >= 0)
    t.false(list.indexOf('hoge') >= 0)
 })
