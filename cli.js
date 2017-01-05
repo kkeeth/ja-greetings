@@ -6,16 +6,14 @@ for (let i = 2; i < argv.length; i++) {
    else
       greet(argv[i])
 }
-if (argv.length === 2) console.log('Please select an option!!')
+if (argv.length === 2) console.log('Please select an option')
 
 function greet(item) {
-   let module = require('./index')
+   const module = require('./index')
    console.log(module.greet(item))
 }
 
 function list_greetings() {
-   require('./index').list((err, list) => {
-      if (err) throw new Error(err)
-      console.log(list.join("\n"))
-   })
+   const list = require('./index').list()
+   console.log(list.join("\n"))
 }
