@@ -44,3 +44,6 @@ $ npm run greet new
 
 ## License
 [MIT](https://github.com/k-kuwahara/ja-greetings/blob/master/LICENSE)
+
+## Others
+I'm waiting for you at any time, including code reviews, bug reports, feature additions, questions and more!
