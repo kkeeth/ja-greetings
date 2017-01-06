@@ -18,14 +18,19 @@
 
 `ja-greetings` is a cli tool that displays the greetings of each season in Japan.
 
+
 ## Install
 ```
 $ npm i ja-greetings
+
+or
+
+$ npm i ja-greetings -g
 ```
 ※The corresponding version of nodejs is version 6 or higher!
 
-## How to use
 
+## How to use
 
 Please add the following to `package.json`.
 ```
@@ -36,14 +41,21 @@ Please add the following to `package.json`.
 …
 ```
 
-
 Just run the command! (the following is an example)
 ```
 $ npm run greet new
 ```
 
+If you have globally installed, you can execute with the following command.
+
+```
+$ ja-greetings new
+```
+
+
 ## License
 [MIT](https://github.com/k-kuwahara/ja-greetings/blob/master/LICENSE)
+
 
 ## Others
 I'm waiting for you at any time, including code reviews, bug reports, feature additions, questions and more!

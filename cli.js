@@ -1,19 +1,72 @@
 #!/usr/bin/env node
-const argv = process.argv
-for (let i = 2; i < argv.length; i++) {
-   if (argv[i] === 'list')
-      list_greetings()
-   else
-      greet(argv[i])
+const argv = require('optimist')
+   .usage( "Usage:\n"
+         + "  $0 <options>\n\n"
+         + "Options:\n"
+         + "  a, all    : show all greetings\n"
+         + "  n, new    : new years greeting\n"
+         + "  s, summer : summer greeting\n"
+         + "  w, winter : winter greeting\n"
+         + "  l, last   : end of years greeting\n"
+         + "  h, help   : show help this tool"
+   )
+   .argv
+
+if (argv._.length === 0) {
+   show_help()
+} else {
+   for (let i = 0; i < argv._.length; i++) {
+      switch (argv._[i]) {
+         case 'a':
+         case 'all':
+            greet_all()
+            break
+         case 'h':
+         case 'help':
+            show_help()
+            break
+         default:
+            greet(convert(argv._[i]))
+            break
+      }
+   }
 }
-if (argv.length === 2) console.log('Please select an option')
 
 function greet(item) {
    const module = require('./index')
    console.log(module.greet(item))
 }
 
-function list_greetings() {
-   const list = require('./index').list()
-   console.log(list.join("\n"))
+function greet_all() {
+   const module = require('./index')
+   module.list().forEach((item) => {
+      console.log(module.greet(item))
+   })
+}
+
+function show_help() {
+   console.log('\n')
+   require('optimist').showHelp()
+}
+
+function convert(key) {
+   let ret = ''
+   switch(key) {
+      case 'n':
+         ret = 'new'
+         break
+      case 's':
+         ret = 'summer'
+         break
+      case 'w':
+         ret = 'winter'
+         break
+      case 'l':
+         ret = 'last'
+         break
+      default:
+         ret = key
+         break
+   }
+   return ret
 }

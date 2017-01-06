@@ -1,6 +1,6 @@
 {
   "name": "ja-greetings",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "'ja-greetings' is a cli tool that displays Japanese greetings",
   "main": "index.js",
   "bin": "cli.js",
@@ -26,7 +26,8 @@
     "email": "zensin0082@gmail.com"
   },
   "devDependencies": {
-    "ava": "^0.17.0"
+    "ava": "^0.17.0",
+    "optimist": "^0.6.1"
   },
   "license": "MIT"
 }
