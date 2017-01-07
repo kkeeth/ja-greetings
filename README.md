@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.org/k-kuwahara/ja-greetings.svg?branch=master)](https://travis-ci.org/k-kuwahara/ja-greetings)
 
 # ja-greetings
+
 ```
+_______________
             あ
       今  おけ
     よ年  めま
@@ -14,6 +16,7 @@
   ま    ま
   す    す
   。    。
+---------------
 ```
 
 `ja-greetings` is a cli tool that displays the greetings of each season in Japan.
