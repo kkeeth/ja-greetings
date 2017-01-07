@@ -2,7 +2,7 @@
 const argv = require('optimist')
    .usage( "Usage:\n"
          + "  $0 <options>\n\n"
-         + "Options:\n"
+         + "Commands:\n"
          + "  a, all    : show all greetings\n"
          + "  n, new    : new years greeting\n"
          + "  s, summer : summer greeting\n"
@@ -26,7 +26,9 @@ if (argv._.length === 0) {
             show_help()
             break
          default:
-            greet(convert(argv._[i]))
+            let key = convert(argv._[i])
+            const ret = (exist_check(key) && greet(key))
+            if (ret == false) show_help()
             break
       }
    }
@@ -34,19 +36,27 @@ if (argv._.length === 0) {
 
 function greet(item) {
    const module = require('./index')
-   console.log(module.greet(item))
+   const greet = module.greet(item)
+   if (greet)
+      console.log(module.format(greet))
 }
 
 function greet_all() {
    const module = require('./index')
+   let greet = ''
    module.list().forEach((item) => {
-      console.log(module.greet(item))
+      greet = module.greet(item)
+      console.log(module.format(greet))
    })
 }
 
 function show_help() {
-   console.log('\n')
    require('optimist').showHelp()
+}
+
+function exist_check(key) {
+   const list = require('./index').list()
+   return (list.indexOf(key) + 1)
 }
 
 function convert(key) {

@@ -3,17 +3,23 @@ const format = require('./lib/format')
 const greetings = require('./lib/greetings')
 
 test('select one option', t => {
+   // normal case
+   t.truthy(greetings.get('new'))
+
    // error check
-   t.is(greetings.get(), 'Not found <undefined> greeting')
-   t.is(greetings.get('hoge'), 'Not found <hoge> greeting')
-   t.is(greetings.replace_ex('hoge'), 'Cannot parse greeting file\n')
+   t.false(greetings.get())
+   t.false(greetings.get('all'))
+   t.false(greetings.get('help'))
+   t.false(greetings.get('l'))
+   t.false(greetings.get('hoge'))
+   t.is(greetings.replace_ex('hoge'), 'Cannot parse greeting file')
 })
 
 test('select multi options', t => {
    const opts = ['new', 'last', 'summer', 'winter', 'hoge']
 
    // error check
-   t.is(greetings.get(opts), 'Not found <' + opts.join(',') + '> greeting')
+   t.false(greetings.get(opts))
 })
 
 test('show option list', t => {
