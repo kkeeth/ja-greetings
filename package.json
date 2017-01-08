@@ -13,7 +13,8 @@
   },
   "keywords": [
     "ja-greetings",
-    "greetings"
+    "greetings",
+    "cli-app"
   ],
   "files": [
     "index.js",
