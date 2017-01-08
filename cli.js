@@ -24,7 +24,7 @@ const yargs = require('yargs')
 const argv = yargs.argv
 let key = convert(argv._[0])
 
-if (argv._.length === 0 || argv.h) {
+if (argv._.length === 0 || argv._.length >= 2 || argv.h) {
    show_help()
 } else {
    switch (key) {
