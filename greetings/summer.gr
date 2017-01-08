@@ -1,4 +1,4 @@
-$summer = <<EOC
+$origin >
     暑
     中
     お
@@ -10,4 +10,51 @@ $summer = <<EOC
   ま
   す
   。
-EOC
+< origin
+
+$kyoto >
+    暑
+    中
+    お
+  よ見
+  う舞
+  しい
+  上
+  げ
+  ま
+  す
+  。
+< kyoto
+
+$osaka >
+    暑
+    中
+    お
+    見
+  申舞
+  しい
+  や
+  げ
+  ま
+  す
+  。
+< osaka
+
+$okinawa >
+    暑
+    中
+    お
+  ち見
+  ょ舞
+  ぎい
+  り
+  ｜
+  さ
+  ｜
+  し
+  ぁ
+  げ
+  ま
+  す
+  。
+< okinawa
