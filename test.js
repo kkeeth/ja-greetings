@@ -1,5 +1,4 @@
 const test   = require('ava')
-const format = require('./lib/format')
 const greetings = require('./lib/greetings')
 
 test('select one option', t => {

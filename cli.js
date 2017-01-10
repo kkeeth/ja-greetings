@@ -24,7 +24,10 @@ const yargs = require('yargs')
 const argv = yargs.argv
 let key = convert(argv._[0])
 
-if (argv._.length === 0 || argv._.length >= 2 || argv.h) {
+if (argv._.length === 0 || argv.h) {
+   show_help()
+} else if (argv._.length >= 2) {
+   console.log('Error: Please input only one command\n')
    show_help()
 } else {
    switch (key) {
@@ -41,8 +44,7 @@ if (argv._.length === 0 || argv._.length >= 2 || argv.h) {
 function greet(item) {
    const module = require('./index')
    const greet = module.greet(item, argv.d)
-   if (greet)
-      console.log(module.format(greet))
+   if (greet) console.log(greet)
 }
 
 function greet_all() {
@@ -50,7 +52,7 @@ function greet_all() {
    let greet = ''
    module.list().forEach((item) => {
       greet = module.greet(item, argv.d)
-      console.log(module.format(greet))
+      if (greet) console.log(greet)
    })
 }
 

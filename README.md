@@ -23,17 +23,21 @@ _______________
 
 
 ## Install
+・local install
+
 ```
 $ npm i ja-greetings
+```
 
-or
+・global install
 
+```
 $ npm i ja-greetings -g
 ```
 ※The corresponding version of nodejs is version 6 or higher!
 
 
-## How to use
+## Usage
 
 Please add the following to `package.json`.
 ```
