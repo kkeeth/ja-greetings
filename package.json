@@ -1,6 +1,6 @@
 {
   "name": "ja-greetings",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "'ja-greetings' is a cli tool that displays Japanese greetings",
   "main": "index.js",
   "bin": "cli.js",
