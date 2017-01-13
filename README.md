@@ -60,6 +60,28 @@ $ ja-greetings new
 ```
 
 
+__Optios:__
+```
+  -d, --dialect   Greeting from each prefecture dialect
+  -s, --surround  Decoration of the surround
+  -h, --help      Show help
+```
+
+
+__Dialects:__
+```
+kyoto osaka okinawa
+```
+
+__Surrounds:__
+```
+no        Do not surround text
+w-star    ☆
+b-star    ★
+asterisk  ＊
+slash     top: /￣, bottom: ＿/
+```
+
 ## License
 [MIT](https://github.com/k-kuwahara/ja-greetings/blob/master/LICENSE)
 

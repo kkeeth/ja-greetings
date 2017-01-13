@@ -14,22 +14,41 @@ const yargs = require('yargs')
          alias: 'dialect',
          describe: 'Greeting from each prefecture dialect'
       },
+      'n': {
+         alias: 'no-surround',
+         describe: 'Do not surround text'
+      },
       'h': {
          alias: 'help',
          describe: 'Show help'
       }
    })
-   .epilog('Dialect:\n' + '  kyoto osaka okinawa')
+   .epilog( 'Dialects:\n'
+          + '  kyoto osaka okinawa\n\n'
+          + 'Surrounds:\n'
+          + '  no        Do not surround text\n'
+          + '  w-star    ☆\n'
+          + '  b-star    ★\n'
+          + '  asterisk  ＊'
+          + '  slash     top: /￣, bottom: ＿/\n'
+   )
    .locale('en')
 const argv = yargs.argv
 let key = convert(argv._[0])
 
-if (argv._.length === 0 || argv.h) {
+// 'help' is top priority option
+if (argv.h) {
    show_help()
-} else if (argv._.length >= 2) {
-   console.log('Error: Please input only one command\n')
-   show_help()
-} else {
+}
+else if (argv._.length === 0){
+   if (argv.d) show_help('Error: Please select one dialect\n')
+   else if (argv.s) show_help('Error: Please select one surround pattern\n')
+   else show_help('Error: Please input any command (with option you need)\n')
+}
+else if (argv._.length >= 2) {
+   show_help('Error: Please input only one command\n')
+}
+else {
    switch (key) {
       case 'all':
          greet_all()
@@ -43,7 +62,7 @@ if (argv._.length === 0 || argv.h) {
 
 function greet(item) {
    const module = require('./index')
-   const greet = module.greet(item, argv.d)
+   const greet = module.greet(item, argv)
    if (greet) console.log(greet)
 }
 
@@ -51,17 +70,20 @@ function greet_all() {
    const module = require('./index')
    let greet = ''
    module.list().forEach((item) => {
-      greet = module.greet(item, argv.d)
+      greet = module.greet(item, argv)
       if (greet) console.log(greet)
    })
 }
 
-function show_help() {
+function show_help(text) {
+   if (text) console.log(text)
    yargs.showHelp()
 }
 
 function exist_check(key) {
    const list = require('./index').list()
+   // If index is 0, it becomes false,
+   // incrementing by 1
    return (list.indexOf(key) + 1)
 }
 
