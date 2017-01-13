@@ -14,9 +14,9 @@ const yargs = require('yargs')
          alias: 'dialect',
          describe: 'Greeting from each prefecture dialect'
       },
-      'n': {
-         alias: 'no-surround',
-         describe: 'Do not surround text'
+      's': {
+         alias: 'surround',
+         describe: 'Decoration of the surround'
       },
       'h': {
          alias: 'help',
