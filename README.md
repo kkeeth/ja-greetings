@@ -71,7 +71,7 @@ __Optios:__
 
 __Dialects:__
 ```
-kyoto osaka okinawa
+kyoto osaka okinawa hiroshima
 ```
 
 __Surrounds:__

@@ -24,7 +24,7 @@ const yargs = require('yargs')
       }
    })
    .epilog( 'Dialects:\n'
-          + '  kyoto osaka okinawa\n\n'
+          + '  kyoto osaka okinawa hiroshima\n\n'
           + 'Surrounds:\n'
           + '  no        Do not surround text\n'
           + '  w-star    ☆\n'
