@@ -29,7 +29,7 @@ const yargs = require('yargs')
           + '  no        Do not surround text\n'
           + '  w-star    ☆\n'
           + '  b-star    ★\n'
-          + '  asterisk  ＊'
+          + '  asterisk  ＊\n'
           + '  slash     top: /￣, bottom: ＿/\n'
    )
    .locale('en')
@@ -40,11 +40,6 @@ let key = convert(argv._[0])
 if (argv.h) {
    show_help()
 }
-else if (argv._.length === 0){
-   if (argv.d) show_help('Error: Please select one dialect\n')
-   else if (argv.s) show_help('Error: Please select one surround pattern\n')
-   else show_help('Error: Please input any command (with option you need)\n')
-}
 else if (argv._.length >= 2) {
    show_help('Error: Please input only one command\n')
 }
@@ -54,8 +49,9 @@ else {
          greet_all()
          break
       default:
-         const ret = (exist_check(key) && greet(key))
+         const ret = exist_check(argv)
          if (ret == false) show_help()
+         else greet(key)
          break
    }
 }
@@ -80,11 +76,19 @@ function show_help(text) {
    yargs.showHelp()
 }
 
-function exist_check(key) {
-   const list = require('./index').list()
+function exist_check(argv) {
+   const greetings = require('./index').get_greetings()
+   const dialects  = require('./index').get_dialects()
+   const surrounds = require('./index').get_surrounds()
+   let ret = true
+
    // If index is 0, it becomes false,
    // incrementing by 1
-   return (list.indexOf(key) + 1)
+   ret = greetings.indexOf(argv._[0]) + 1
+   if (argv.d && ret) ret = dialects.indexOf(argv.d) + 1
+   if (argv.s && ret) ret = surrounds.indexOf(argv.s) + 1
+
+   return ret
 }
 
 function convert(key) {

@@ -21,8 +21,8 @@ test('select multi options', t => {
    t.false(greetings.get(opts))
 })
 
-test('show option list', t => {
-   const list = greetings.list()
+test('show greeting list', t => {
+   const list = greetings.get_greetings()
 
    // error check
    t.is(list.length, 4)
@@ -30,5 +30,30 @@ test('show option list', t => {
    t.true(list.indexOf('summer') >= 0)
    t.true(list.indexOf('winter') >= 0)
    t.true(list.indexOf('last') >= 0)
+   t.false(list.indexOf('hoge') >= 0)
+})
+
+test('show dialect list', t => {
+   const list = greetings.get_dialects()
+
+   // error check
+   t.is(list.length, 4)
+   t.true(list.indexOf('kyoto') >= 0)
+   t.true(list.indexOf('osaka') >= 0)
+   t.true(list.indexOf('okinawa') >= 0)
+   t.true(list.indexOf('hiroshima') >= 0)
+   t.false(list.indexOf('hoge') >= 0)
+})
+
+test('show surround list', t => {
+   const list = greetings.get_surrounds()
+
+   // error check
+   t.is(list.length, 5)
+   t.true(list.indexOf('no') >= 0)
+   t.true(list.indexOf('w-star') >= 0)
+   t.true(list.indexOf('b-star') >= 0)
+   t.true(list.indexOf('asterisk') >= 0)
+   t.true(list.indexOf('slash') >= 0)
    t.false(list.indexOf('hoge') >= 0)
 })
