@@ -80,6 +80,8 @@ no        Do not surround text
 w-star    ☆
 b-star    ★
 asterisk  ＊
+w-tri     top: ▽  , bottom: △
+b-tri     top: ▼  , bottom: ▲
 slash     top: /￣, bottom: ＿/
 ```
 

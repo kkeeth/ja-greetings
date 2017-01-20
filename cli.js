@@ -30,10 +30,14 @@ const yargs = require('yargs')
           + '  w-star    ☆\n'
           + '  b-star    ★\n'
           + '  asterisk  ＊\n'
+          + '  w-tri     top: ▽  , bottom: △\n'
+          + '  b-tri     top: ▼  , bottom: ▲\n'
           + '  slash     top: /￣, bottom: ＿/\n'
    )
    .locale('en')
-const argv = yargs.argv
+
+const     argv = yargs.argv
+const is_exist = exist_check(argv)
 let key = convert(argv._[0])
 
 // 'help' is top priority option
@@ -43,15 +47,16 @@ if (argv.h) {
 else if (argv._.length >= 2) {
    show_help('Error: Please input only one command\n')
 }
+else if (is_exist == false) {
+      show_help()
+}
 else {
    switch (key) {
       case 'all':
          greet_all()
          break
       default:
-         const ret = exist_check(argv)
-         if (ret == false) show_help()
-         else greet(key)
+         greet(key)
          break
    }
 }
@@ -65,7 +70,8 @@ function greet(item) {
 function greet_all() {
    const module = require('./index')
    let greet = ''
-   module.list().forEach((item) => {
+   module.get_greetings().forEach((item) => {
+      if (item === 'all') return
       greet = module.greet(item, argv)
       if (greet) console.log(greet)
    })
