@@ -60,6 +60,14 @@ If you have globally installed, you can execute with the following command.
 $ ja-greetings new
 ```
 
+__Commands:__
+```
+  a, all    : show all greetings
+  n, new    : new years greeting
+  s, summer : summer greeting
+  w, winter : winter greeting
+  l, last   : end of years greeting
+```
 
 __Optios:__
 ```
