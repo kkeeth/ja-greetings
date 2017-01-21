@@ -47,7 +47,7 @@ if (argv.h) {
 else if (argv._.length >= 2) {
    show_help('Error: Please input only one command\n')
 }
-else if (is_exist == false) {
+else if (is_exist < 1) {
       show_help()
 }
 else {
