@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+
+const app   = require('./index')
 const yargs = require('yargs')
    .usage( 'Usage:\n'
          + '  node $0 [-d prefecture] <command>\n\n'
@@ -62,17 +64,15 @@ else {
 }
 
 function greet(item) {
-   const module = require('./index')
-   const greet = module.greet(item, argv)
+   const greet = app.greet(item, argv)
    if (greet) console.log(greet)
 }
 
 function greet_all() {
-   const module = require('./index')
    let greet = ''
-   module.get_greetings().forEach((item) => {
+   app.get_greetings().forEach((item) => {
       if (item === 'all') return
-      greet = module.greet(item, argv)
+      greet = app.greet(item, argv)
       if (greet) console.log(greet)
    })
 }
@@ -83,14 +83,14 @@ function show_help(text) {
 }
 
 function exist_check(argv) {
-   const greetings = require('./index').get_greetings()
-   const dialects  = require('./index').get_dialects()
-   const surrounds = require('./index').get_surrounds()
+   const greetings = app.get_greetings()
+   const dialects  = app.get_dialects()
+   const surrounds = app.get_surrounds()
    let ret = true
 
    // If index is 0, it becomes false,
    // incrementing by 1
-   ret = greetings.indexOf(argv._[0]) + 1
+   ret = greetings.indexOf(convert(argv._[0])) + 1
    if (argv.d && ret) ret = dialects.indexOf(argv.d) + 1
    if (argv.s && ret) ret = surrounds.indexOf(argv.s) + 1
 
@@ -122,6 +122,3 @@ function convert(key) {
    return ret
 }
 
-function get_options(param) {
-   return
-}
