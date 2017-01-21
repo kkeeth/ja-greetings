@@ -9,7 +9,9 @@ const yargs = require('yargs')
          + '  n, new    : new years greeting\n'
          + '  s, summer : summer greeting\n'
          + '  w, winter : winter greeting\n'
-         + '  l, last   : end of years greeting'
+         + '  l, last   : end of years greeting\n'
+         + '  t, thx    : thanks greeting\n'
+         + '  so, sorry : sorry  greeting'
    )
    .options({
       'd': {
@@ -114,6 +116,12 @@ function convert(key) {
          break
       case 'l':
          ret = 'last'
+         break
+      case 't':
+         ret = 'thx'
+         break
+      case 'so':
+         ret = 'sorry'
          break
       default:
          ret = key

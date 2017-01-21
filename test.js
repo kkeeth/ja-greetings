@@ -1,5 +1,6 @@
-const test   = require('ava')
-const greetings = require('./lib/greetings')
+import test from 'ava'
+import pify from 'pify'
+import greetings from './lib/greetings'
 
 test('select one option', t => {
    // normal case
@@ -15,7 +16,7 @@ test('select one option', t => {
 })
 
 test('select multi options', t => {
-   const opts = ['new', 'last', 'summer', 'winter', 'hoge']
+   const opts = ['new', 'last', 'summer', 'winter', 'thx', 'sorry', 'all', 'hoge']
 
    // error check
    t.false(greetings.get(opts))
@@ -25,11 +26,13 @@ test('show greeting list', t => {
    const list = greetings.get_greetings()
 
    // error check
-   t.is(list.length, 5)
+   t.is(list.length, 7)
    t.true(list.indexOf('new') >= 0)
    t.true(list.indexOf('summer') >= 0)
    t.true(list.indexOf('winter') >= 0)
    t.true(list.indexOf('last')   >= 0)
+   t.true(list.indexOf('thx')    >= 0)
+   t.true(list.indexOf('sorry')  >= 0)
    t.true(list.indexOf('all')    >= 0)
    t.false(list.indexOf('hoge')  >= 0)
 })

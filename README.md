@@ -69,6 +69,8 @@ __Commands:__
   s, summer : summer greeting
   w, winter : winter greeting
   l, last   : end of years greeting
+  t, thx    : thanks greeting
+  so, sorry : sorry  greeting
 ```
 
 __Optios:__
