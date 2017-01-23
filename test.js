@@ -89,4 +89,21 @@ test('surround check', async t => {
    stdout = await pify(execFile)('./cli.js', ['-s', 'no', 'last'])
    stdout = stdout.split(/\r\n|\r|\n/)[1];
    t.is(stdout, '            本')
+
+   // null check
+   stdout = await pify(execFile)('./cli.js', ['-s', 'last'])
+   t.is(stdout, '')
 })
+
+test('dialect check', async t => {
+   // okinawa
+   let stdout = await pify(execFile)('./cli.js', ['-d', 'okinawa', 'last'])
+   stdout = stdout.split(/\r\n|\r|\n/)[5]
+   t.is(stdout, '    たん  話で')
+
+   // null check
+   stdout = await pify(execFile)('./cli.js', ['-d', 'last'])
+   t.is(stdout, '')
+})
+
+
