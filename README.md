@@ -77,6 +77,7 @@ __Optios:__
 ```
   -d, --dialect   Greeting from each prefecture dialect
   -s, --surround  Decoration of the surround
+  -v, --version   Show version
   -h, --help      Show help
 ```
 

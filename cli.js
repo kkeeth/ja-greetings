@@ -22,6 +22,10 @@ const yargs = require('yargs')
          alias: 'surround',
          describe: 'Decoration of the surround'
       },
+      'v': {
+         alias: 'version',
+         describe: 'Show version'
+      },
       'h': {
          alias: 'help',
          describe: 'Show help'
@@ -47,6 +51,9 @@ let key = convert(argv._[0])
 // 'help' is top priority option
 if (argv.h) {
    show_help()
+}
+else if (argv.v) {
+   console.log('1.3.3')
 }
 else if (argv._.length >= 2) {
    show_help('Error: Please input only one command\n')
