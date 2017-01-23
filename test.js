@@ -68,21 +68,18 @@ test('show surround list', t => {
 test('surround check', async t => {
     // error
    let stdout = await pify(execFile)('./cli.js', ['last'])
-   stdout = stdout.split(/\r\n|\r|\n/)[1];
-   t.is(stdout.indexOf('#'), -1)
+   t.notRegex(stdout, /#+/)
 
    // default
-   t.not(stdout.indexOf('--'), -1)
+   t.regex(stdout, /-+/)
 
    // b-star
    stdout = await pify(execFile)('./cli.js', ['-s', 'b-star', 'last'])
-   stdout = stdout.split(/\r\n|\r|\n/)[1];
-   t.not(stdout.indexOf('★'), -1)
+   t.regex(stdout, /★+/)
 
    // slash
    stdout = await pify(execFile)('./cli.js', ['-s', 'slash', 'last'])
-   stdout = stdout.split(/\r\n|\r|\n/)[1];
-   t.not(stdout.indexOf('/￣'), -1)
+   t.regex(stdout, /\/￣/)
 
 
    // no surround
