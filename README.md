@@ -97,6 +97,14 @@ b-tri     top: ▼  , bottom: ▲
 slash     top: /￣, bottom: ＿/
 ```
 
+## Test
+
+```bash
+$ chmod +x cli.js
+$ npm t
+```
+
+
 ## License
 [MIT](https://github.com/k-kuwahara/ja-greetings/blob/master/LICENSE)
 

@@ -1,6 +1,7 @@
 import test from 'ava'
 import pify from 'pify'
 import greetings from './lib/greetings'
+import {execFile} from 'child_process'
 
 test('select one option', t => {
    // normal case
@@ -62,4 +63,30 @@ test('show surround list', t => {
    t.true(list.indexOf('b-tri') >= 0)
    t.true(list.indexOf('slash') >= 0)
    t.false(list.indexOf('hoge') >= 0)
+})
+
+test('surround check', async t => {
+    // error
+   let stdout = await pify(execFile)('./cli.js', ['last'])
+   stdout = stdout.split(/\r\n|\r|\n/)[1];
+   t.is(stdout.indexOf('#'), -1)
+
+   // default
+   t.not(stdout.indexOf('--'), -1)
+
+   // b-star
+   stdout = await pify(execFile)('./cli.js', ['-s', 'b-star', 'last'])
+   stdout = stdout.split(/\r\n|\r|\n/)[1];
+   t.not(stdout.indexOf('★'), -1)
+
+   // slash
+   stdout = await pify(execFile)('./cli.js', ['-s', 'slash', 'last'])
+   stdout = stdout.split(/\r\n|\r|\n/)[1];
+   t.not(stdout.indexOf('/￣'), -1)
+
+
+   // no surround
+   stdout = await pify(execFile)('./cli.js', ['-s', 'no', 'last'])
+   stdout = stdout.split(/\r\n|\r|\n/)[1];
+   t.is(stdout, '            本')
 })
