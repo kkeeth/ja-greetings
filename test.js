@@ -23,22 +23,25 @@ test('select multi options', t => {
    t.false(greetings.get(opts))
 })
 
-test('show greeting list', t => {
+test('check greeting list', t => {
    const list = greetings.get_greetings()
+   let list_length = 0
+   for (let key in list) {
+      list_length++
+   }
 
    // error check
-   t.is(list.length, 7)
-   t.true(list.indexOf('new') >= 0)
-   t.true(list.indexOf('summer') >= 0)
-   t.true(list.indexOf('winter') >= 0)
-   t.true(list.indexOf('last')   >= 0)
-   t.true(list.indexOf('thx')    >= 0)
-   t.true(list.indexOf('sorry')  >= 0)
-   t.true(list.indexOf('all')    >= 0)
-   t.false(list.indexOf('hoge')  >= 0)
+   t.is(list_length, 7)
+   t.true('a' in list)
+   t.true('n' in list)
+   t.true('s' in list)
+   t.true('w' in list)
+   t.true('t' in list)
+   t.true('so' in list)
+   t.false('z' in list)
 })
 
-test('show dialect list', t => {
+test('check dialect list', t => {
    const list = greetings.get_dialects()
 
    // error check
@@ -50,7 +53,7 @@ test('show dialect list', t => {
    t.false(list.indexOf('hoge') >= 0)
 })
 
-test('show surround list', t => {
+test('check surround list', t => {
    const list = greetings.get_surrounds()
 
    // error check
@@ -65,7 +68,7 @@ test('show surround list', t => {
    t.false(list.indexOf('hoge') >= 0)
 })
 
-test('surround check', async t => {
+test('surround exist check', async t => {
     // error
    let stdout = await pify(execFile)('./cli.js', ['last'])
    t.notRegex(stdout, /#+/)
@@ -92,7 +95,7 @@ test('surround check', async t => {
    t.is(stdout, '')
 })
 
-test('dialect check', async t => {
+test('dialect exist check', async t => {
    // okinawa
    let stdout = await pify(execFile)('./cli.js', ['-d', 'okinawa', 'last'])
    stdout = stdout.split(/\r\n|\r|\n/)[5]

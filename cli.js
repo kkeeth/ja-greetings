@@ -79,12 +79,14 @@ function greet(item) {
 }
 
 function greet_all() {
+   const greetings = app.get_greetings()
    let greet = ''
-   app.get_greetings().forEach((item) => {
-      if (item === 'all') return
-      greet = app.greet(item, argv)
+   for (let key in greetings) {
+      if (greetings[key] === 'all') continue
+
+      greet = app.greet(greetings[key], argv)
       if (greet) console.log(greet)
-   })
+   }
 }
 
 function show_help(text) {
@@ -100,7 +102,15 @@ function exist_check(argv) {
 
    // If index is 0, it becomes false,
    // incrementing by 1
-   ret = greetings.indexOf(convert(argv._[0])) + 1
+   for (let key in greetings) {
+      if (greetings[key] === convert(argv._[0])) {
+         ret = true
+         break
+      }
+      else {
+         ret = 0
+      }
+   }
    if (argv.d && ret) ret = dialects.indexOf(argv.d) + 1
    if (argv.s && ret) ret = surrounds.indexOf(argv.s) + 1
 
@@ -108,33 +118,7 @@ function exist_check(argv) {
 }
 
 function convert(key) {
-   let ret = ''
-   switch(key) {
-      case 'a':
-         ret = 'all'
-         break
-      case 'n':
-         ret = 'new'
-         break
-      case 's':
-         ret = 'summer'
-         break
-      case 'w':
-         ret = 'winter'
-         break
-      case 'l':
-         ret = 'last'
-         break
-      case 't':
-         ret = 'thx'
-         break
-      case 'so':
-         ret = 'sorry'
-         break
-      default:
-         ret = key
-         break
-   }
-   return ret
+   const greetings = app.get_greetings()
+   return greetings[key] || key
 }
 
