@@ -46,7 +46,7 @@ const yargs = require('yargs')
 
 const     argv = yargs.argv
 const is_exist = exist_check(argv)
-let key = convert(argv._[0])
+let key = get_full_text(argv._[0])
 
 // 'help' is top priority option
 if (argv.h) {
@@ -99,14 +99,14 @@ function exist_check(argv) {
 
    // If index is 0, it becomes false,
    // incrementing by 1
-   ret = greetings.indexOf(convert(argv._[0])) + 1
+   ret = greetings.indexOf(get_full_text(argv._[0])) + 1
    if (argv.d && ret) ret = dialects.indexOf(argv.d) + 1
    if (argv.s && ret) ret = surrounds.indexOf(argv.s) + 1
 
    return ret
 }
 
-function convert(key) {
+function get_full_text(key) {
    let ret = ''
    switch(key) {
       case 'a':
