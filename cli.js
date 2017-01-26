@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const package_json = require('./package.json')
 const app   = require('./index')
 const yargs = require('yargs')
    .usage( 'Usage:\n'
@@ -53,7 +54,6 @@ if (argv.h) {
    show_help()
 }
 else if (argv.v) {
-   const package_json = require('./package.json')
    console.log(package_json.version)
 }
 else if (argv._.length >= 2) {
