@@ -4,7 +4,7 @@ const package_json = require('./package.json')
 const app   = require('./index')
 const yargs = require('yargs')
    .usage( 'Usage:\n'
-         + '  node $0 [-d prefecture] <command>\n\n'
+         + '  node $0 <command> [-d prefecture] [-s surround]\n\n'
          + 'Commands:\n'
          + '  a, all    : show all greetings\n'
          + '  n, new    : new years greeting\n'
