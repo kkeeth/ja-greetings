@@ -42,7 +42,8 @@ $ npm i ja-greetings -g
 
 ## Usage
 
-Please add the following to `package.json`.
+If you install locally, please add the following to `package.json`.
+
 ```
 …
   "scripts": {
