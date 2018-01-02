@@ -2,9 +2,10 @@
 
 const package_json = require('./package.json')
 const app   = require('./index')
+const chalk = require('chalk')
 const yargs = require('yargs')
-   .usage( 'Usage:\n'
-         + '  node $0 <command> [-d prefecture] [-s surround]\n\n'
+   .usage( `${chalk.yellow.bold('Usage:\n')}`
+         + `${chalk.yellow.bold('  ja-greetings <command> [-d prefecture] [-s surround] [-l language]\n\n')}`
          + 'Commands:\n'
          + '  a, all    : show all greetings\n'
          + '  n, new    : new years greeting\n'
@@ -36,11 +37,11 @@ const yargs = require('yargs')
          describe: 'Show help'
       }
    })
-   .epilog( 'Dialects:\n'
+   .epilog( `${chalk.green('Dialects:\n')}`
           + '  kyoto, osaka, okinawa, hiroshima\n\n'
-          + 'Languages:\n'
+          + `${chalk.green('Languages:\n')}`
           + '  en, ch\n\n'
-          + 'Surrounds:\n'
+          + `${chalk.green('Surrounds:\n')}`
           + '  no        Do not surround text\n'
           + '  w-star    ☆\n'
           + '  b-star    ★\n'
@@ -103,6 +104,7 @@ function show_help(text) {
 function exist_check(argv) {
    const greetings = app.get_greetings()
    const dialects  = app.get_dialects()
+   const languages = app.get_languages()
    const surrounds = app.get_surrounds()
    let ret = true
 
@@ -118,6 +120,7 @@ function exist_check(argv) {
       }
    }
    if (argv.d && ret) ret = dialects.indexOf(argv.d) + 1
+   if (argv.l && ret) ret = languages.indexOf(argv.l) + 1
    if (argv.s && ret) ret = surrounds.indexOf(argv.s) + 1
 
    return ret
@@ -127,4 +130,3 @@ function convert(key) {
    const greetings = app.get_greetings()
    return greetings[key] || key
 }
-

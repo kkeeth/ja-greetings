@@ -31,6 +31,7 @@
     "pify": "^2.3.0"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "yargs": "^6.6.0"
   },
   "license": "MIT"
