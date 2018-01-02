@@ -23,6 +23,10 @@ const yargs = require('yargs')
          alias: 'surround',
          describe: 'Decoration of the surround'
       },
+      'l': {
+         alias: 'language',
+         describe: 'Select language'
+      },
       'v': {
          alias: 'version',
          describe: 'Show version'
@@ -33,7 +37,9 @@ const yargs = require('yargs')
       }
    })
    .epilog( 'Dialects:\n'
-          + '  kyoto osaka okinawa hiroshima\n\n'
+          + '  kyoto, osaka, okinawa, hiroshima\n\n'
+          + 'Languages:\n'
+          + '  en, ch\n\n'
           + 'Surrounds:\n'
           + '  no        Do not surround text\n'
           + '  w-star    ☆\n'

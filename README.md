@@ -1,3 +1,4 @@
+
 [![npm version](https://badge.fury.io/js/ja-greetings.svg)](https://badge.fury.io/js/ja-greetings)
 [![Build Status](https://travis-ci.org/k-kuwahara/ja-greetings.svg?branch=master)](https://travis-ci.org/k-kuwahara/ja-greetings)
 [![Code Climate](https://codeclimate.com/github/k-kuwahara/ja-greetings/badges/gpa.svg)](https://codeclimate.com/github/k-kuwahara/ja-greetings)
@@ -78,6 +79,7 @@ __Optios:__
 ```
   -d, --dialect   Greeting from each prefecture dialect
   -s, --surround  Decoration of the surround
+  -l, --language  Select language
   -v, --version   Show version
   -h, --help      Show help
 ```
@@ -85,7 +87,12 @@ __Optios:__
 
 __Dialects:__
 ```
-kyoto osaka okinawa hiroshima
+kyoto, osaka, okinawa, hiroshima
+```
+
+__Languages__
+```
+en, ch
 ```
 
 __Surrounds:__
