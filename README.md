@@ -6,7 +6,7 @@
 
 # ja-greetings
 
-```
+```bash
 _______________
 　　　　　　あ
 　　　今　おけ
@@ -29,15 +29,16 @@ _______________
 ## Install
 ・local install
 
-```
+```bash
 $ npm i ja-greetings
 ```
 
 ・global install
 
-```
+```bash
 $ npm i ja-greetings -g
 ```
+
 ※The corresponding version of nodejs is version 6 or higher!
 
 
@@ -45,7 +46,7 @@ $ npm i ja-greetings -g
 
 If you install locally, please add the following to `package.json`.
 
-```
+```json
 …
   "scripts": {
     "greet": "ja-greetings"
@@ -54,18 +55,20 @@ If you install locally, please add the following to `package.json`.
 ```
 
 Just run the command! (the following is an example)
-```
+
+```bash
 $ npm run greet new
 ```
 
 If you have globally installed, you can execute with the following command.
 
-```
+```bash
 $ ja-greetings new
 ```
 
 __Commands:__
-```
+
+```bash
   a, all    : show all greetings
   n, new    : new years greeting
   s, summer : summer greeting
@@ -76,7 +79,8 @@ __Commands:__
 ```
 
 __Optios:__
-```
+
+```bash
   -d, --dialect   Greeting from each prefecture dialect
   -s, --surround  Decoration of the surround
   -l, --language  Select language
@@ -86,17 +90,20 @@ __Optios:__
 
 
 __Dialects:__
-```
+
+```bash
 kyoto, osaka, okinawa, hiroshima
 ```
 
 __Languages__
-```
+
+```bash
 en, ch
 ```
 
 __Surrounds:__
-```
+
+```bash
 no        Do not surround text
 w-star    ☆
 b-star    ★
