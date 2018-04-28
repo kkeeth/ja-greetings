@@ -27,13 +27,6 @@ _______________
 
 
 ## Install
-・local install
-
-```bash
-$ npm i ja-greetings
-```
-
-・global install
 
 ```bash
 $ npm i ja-greetings -g
@@ -44,20 +37,13 @@ $ npm i ja-greetings -g
 
 ## Usage
 
-If you install locally, please add the following to `package.json`.
-
-```json
-…
-  "scripts": {
-    "greet": "ja-greetings"
-  },
-…
-```
-
 Just run the command! (the following is an example)
 
 ```bash
-$ npm run greet new
+$ npm run ja-greetings new
+
+# shortcut
+$ npm run jag new
 ```
 
 If you have globally installed, you can execute with the following command.
