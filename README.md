@@ -40,17 +40,12 @@ $ npm i ja-greetings -g
 Just run the command! (the following is an example)
 
 ```bash
-$ npm run ja-greetings new
+$ ja-greetings new
 
 # shortcut
-$ npm run jag new
+$ jag new
 ```
 
-If you have globally installed, you can execute with the following command.
-
-```bash
-$ ja-greetings new
-```
 
 __Commands:__
 
