@@ -43,7 +43,7 @@ Just run the command! (the following is an example)
 $ ja-greetings new
 
 # shortcut
-$ jag new
+$ jgr new
 ```
 
 
