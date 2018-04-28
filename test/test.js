@@ -1,6 +1,6 @@
 import test from 'ava'
 import pify from 'pify'
-import greetings from './lib/greetings'
+import greetings from '../lib/greetings'
 import {execFile} from 'child_process'
 
 test('select one option', t => {
