@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('node-alias')('jag', __dirname)
+require('node-alias')('jgr', __dirname)

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const jag   = require('../lib/ja-greetings')
+const jgr   = require('../lib/ja-greetings')
 const chalk = require('chalk')
 const yargs = require('yargs')
    .usage( `${chalk.yellow.bold('Usage:\n')}`
@@ -51,5 +51,5 @@ const yargs = require('yargs')
    )
    .locale('en')
 
-jag.run(yargs)
+jgr.run(yargs)
 

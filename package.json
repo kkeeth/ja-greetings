@@ -5,7 +5,7 @@
   "main": "./lib/ja-greetings.js",
   "bin": {
     "ja-greetings": "bin/ja-greetings",
-    "jag": "bin/jag"
+    "jgr": "bin/jgr"
   },
   "scripts": {
     "test": "ava -v"
