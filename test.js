@@ -70,39 +70,39 @@ test('check surround list', t => {
 
 test('surround exist check', async t => {
     // error
-   let stdout = await pify(execFile)('./cli.js', ['last'])
+   let stdout = await pify(execFile)('./bin/jag', ['last'])
    t.notRegex(stdout, /#+/)
 
    // default
    t.regex(stdout, /-+/)
 
    // b-star
-   stdout = await pify(execFile)('./cli.js', ['-s', 'b-star', 'last'])
+   stdout = await pify(execFile)('./bin/jag', ['-s', 'b-star', 'last'])
    t.regex(stdout, /★+/)
 
    // slash
-   stdout = await pify(execFile)('./cli.js', ['-s', 'slash', 'last'])
+   stdout = await pify(execFile)('./bin/jag', ['-s', 'slash', 'last'])
    t.regex(stdout, /\/￣/)
 
 
    // no surround
-   stdout = await pify(execFile)('./cli.js', ['-s', 'no', 'last'])
+   stdout = await pify(execFile)('./bin/jag', ['-s', 'no', 'last'])
    stdout = stdout.split(/\r\n|\r|\n/)[1];
    t.is(stdout, '            本')
 
    // null check
-   stdout = await pify(execFile)('./cli.js', ['-s', 'last'])
+   stdout = await pify(execFile)('./bin/jag', ['-s', 'last'])
    t.is(stdout, '')
 })
 
 test('dialect exist check', async t => {
    // okinawa
-   let stdout = await pify(execFile)('./cli.js', ['-d', 'okinawa', 'last'])
+   let stdout = await pify(execFile)('./bin/jag', ['-d', 'okinawa', 'last'])
    stdout = stdout.split(/\r\n|\r|\n/)[5]
    t.is(stdout, '    たん  話で')
 
    // null check
-   stdout = await pify(execFile)('./cli.js', ['-d', 'last'])
+   stdout = await pify(execFile)('./bin/jag', ['-d', 'last'])
    t.is(stdout, '')
 })
 

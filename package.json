@@ -1,9 +1,12 @@
 {
   "name": "ja-greetings",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "ja-greetings is a cli tool that displays Japanese greetings",
-  "main": "index.js",
-  "bin": "cli.js",
+  "main": "./lib/ja-greetings.js",
+  "bin": {
+    "ja-greetings": "bin/ja-greetings",
+    "jag": "bin/jag"
+  },
   "scripts": {
     "test": "ava -v"
   },
@@ -32,6 +35,7 @@
   },
   "dependencies": {
     "chalk": "^2.3.0",
+    "node-alias": "^1.0.4",
     "yargs": "^6.6.0"
   },
   "license": "MIT"
