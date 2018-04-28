@@ -1,11 +1,11 @@
 {
   "name": "ja-greetings",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "ja-greetings is a cli tool that displays Japanese greetings",
   "main": "./lib/ja-greetings.js",
   "bin": {
-    "ja-greetings": "bin/ja-greetings",
-    "jgr": "bin/jgr"
+    "ja-greetings": "./bin/ja-greetings",
+    "jgr": "./bin/jgr"
   },
   "scripts": {
     "test": "ava test -v"
