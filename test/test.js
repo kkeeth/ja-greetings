@@ -50,7 +50,17 @@ test('check dialect list', t => {
    t.true(list.indexOf('osaka') >= 0)
    t.true(list.indexOf('okinawa')   >= 0)
    t.true(list.indexOf('hiroshima') >= 0)
-   t.false(list.indexOf('hoge') >= 0)
+   t.false(list.indexOf('hokkaido') >= 0)
+})
+
+test('check language list', t => {
+   const list = greetings.get_languages()
+
+   // error check
+   t.is(list.length, 2)
+   t.true(list.indexOf('en') >= 0)
+   t.true(list.indexOf('ch') >= 0)
+   t.false(list.indexOf('fr') >= 0)
 })
 
 test('check surround list', t => {
@@ -105,5 +115,4 @@ test('dialect exist check', async t => {
    stdout = await pify(execFile)('./bin/jgr', ['-d', 'last'])
    t.is(stdout, '')
 })
-
 
