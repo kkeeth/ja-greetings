@@ -2,6 +2,7 @@
 [![npm version](https://badge.fury.io/js/ja-greetings.svg)](https://badge.fury.io/js/ja-greetings)
 [![Build Status](https://travis-ci.org/k-kuwahara/ja-greetings.svg?branch=master)](https://travis-ci.org/k-kuwahara/ja-greetings)
 [![Code Climate](https://codeclimate.com/github/k-kuwahara/ja-greetings/badges/gpa.svg)](https://codeclimate.com/github/k-kuwahara/ja-greetings)
+![node](https://img.shields.io/badge/node-%3E%3D%208.0.0-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 # ja-greetings
