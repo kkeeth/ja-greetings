@@ -1,6 +1,6 @@
 {
   "name": "ja-greetings",
-  "version": "1.5.9",
+  "version": "1.5.10",
   "description": "ja-greetings is a cli tool that displays Japanese greetings",
   "license": "MIT",
   "main": "./lib/ja-greetings.js",
