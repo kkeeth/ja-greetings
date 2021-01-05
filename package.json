@@ -11,6 +11,11 @@
   "scripts": {
     "test": "ava -v"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "k-kuwahara/ja-greetings"
@@ -31,6 +36,7 @@
   },
   "devDependencies": {
     "ava": "^2.3.0",
+    "husky": "^4.3.6",
     "pify": "^4.0.1"
   },
   "dependencies": {
