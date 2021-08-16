@@ -40,7 +40,7 @@
     "pify": "4.0.1"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^4.0.0",
     "node-alias": "^1.0.4",
     "yargs": "^14.0.0"
   }
