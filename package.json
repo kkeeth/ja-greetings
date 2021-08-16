@@ -42,6 +42,6 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "node-alias": "^1.0.4",
-    "yargs": "^14.0.0"
+    "yargs": "^17.0.0"
   }
 }
