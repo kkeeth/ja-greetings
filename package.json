@@ -37,7 +37,7 @@
   "devDependencies": {
     "ava": "4.3.3",
     "husky": "8.0.1",
-    "pify": "6.0.0"
+    "pify": "6.1.0"
   },
   "dependencies": {
     "chalk": "^5.0.0",
