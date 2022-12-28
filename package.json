@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "ava": "4.3.3",
-    "husky": "8.0.1",
+    "husky": "8.0.2",
     "pify": "6.1.0"
   },
   "dependencies": {
