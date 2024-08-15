@@ -35,7 +35,7 @@
     "email": "zensin0082@gmail.com"
   },
   "devDependencies": {
-    "ava": "5.1.0",
+    "ava": "5.3.1",
     "husky": "8.0.3",
     "pify": "6.1.0"
   },
