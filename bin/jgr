@@ -1,55 +1,66 @@
 #!/usr/bin/env node
 
-const jgr   = require('../lib/ja-greetings')
-const chalk = require('chalk')
-const yargs = require('yargs')
-   .usage( `${chalk.yellow.bold('Usage:\n')}`
-         + `${chalk.yellow.bold('  ja-greetings <command> [-d prefecture] [-s surround] [-l language]\n\n')}`
-         + 'Commands:\n'
-         + '  a, all    : show all greetings\n'
-         + '  n, new    : new years greeting\n'
-         + '  s, summer : summer greeting\n'
-         + '  w, winter : winter greeting\n'
-         + '  l, last   : end of years greeting\n'
-         + '  t, thx    : thanks greeting\n'
-         + '  so, sorry : sorry  greeting'
-   )
-   .options({
-      'd': {
-         alias: 'dialect',
-         describe: 'Greeting from each prefecture dialect'
-      },
-      's': {
-         alias: 'surround',
-         describe: 'Decoration of the surround'
-      },
-      'l': {
-         alias: 'language',
-         describe: 'Select language'
-      },
-      'v': {
-         alias: 'version',
-         describe: 'Show version'
-      },
-      'h': {
-         alias: 'help',
-         describe: 'Show help'
-      }
-   })
-   .epilog( `${chalk.green('Dialects:\n')}`
-          + '  kyoto, osaka, okinawa, hiroshima\n\n'
-          + `${chalk.green('Languages:\n')}`
-          + '  en, ch\n\n'
-          + `${chalk.green('Surrounds:\n')}`
-          + '  no        Do not surround text\n'
-          + '  w-star    ☆\n'
-          + '  b-star    ★\n'
-          + '  asterisk  ＊\n'
-          + '  w-tri     top: ▽  , bottom: △\n'
-          + '  b-tri     top: ▼  , bottom: ▲\n'
-          + '  slash     top: /￣, bottom: ＿/\n'
-   )
-   .locale('en')
+import jgr from '../lib/ja-greetings.js';
+import chalk from 'chalk';
+import yargs from 'yargs';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-jgr.run(yargs)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const pkg = JSON.parse(
+  readFileSync(join(__dirname, '../package.json'), 'utf-8'),
+);
 
+const yargsConfig = yargs(process.argv.slice(2))
+  .version(pkg.version)
+  .usage(
+    `${chalk.yellow.bold('Usage:\n')}` +
+      `${chalk.yellow.bold(
+        '  ja-greetings <command> [-d prefecture] [-s surround] [-l language]\n\n',
+      )}` +
+      'Commands:\n' +
+      '  a, all    : show all greetings\n' +
+      '  n, new    : new years greeting\n' +
+      '  s, summer : summer greeting\n' +
+      '  w, winter : winter greeting\n' +
+      '  l, last   : end of years greeting\n' +
+      '  t, thx    : thanks greeting\n' +
+      '  so, sorry : sorry  greeting',
+  )
+  .options({
+    d: {
+      alias: 'dialect',
+      describe: 'Greeting from each prefecture dialect',
+    },
+    s: {
+      alias: 'surround',
+      describe: 'Decoration of the surround',
+    },
+    l: {
+      alias: 'language',
+      describe: 'Select language',
+    },
+    h: {
+      alias: 'help',
+      describe: 'Show help',
+    },
+  })
+  .epilog(
+    `${chalk.green('Dialects:\n')}` +
+      '  kyoto, osaka, okinawa, hiroshima\n\n' +
+      `${chalk.green('Languages:\n')}` +
+      '  en, ch\n\n' +
+      `${chalk.green('Surrounds:\n')}` +
+      '  no        Do not surround text\n' +
+      '  w-star    ☆\n' +
+      '  b-star    ★\n' +
+      '  asterisk  ＊\n' +
+      '  w-tri     top: ▽  , bottom: △\n' +
+      '  b-tri     top: ▼  , bottom: ▲\n' +
+      '  slash     top: /￣, bottom: ＿/\n',
+  )
+  .locale('en');
+
+jgr.run(yargsConfig);
