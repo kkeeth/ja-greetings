@@ -13,7 +13,7 @@ test('select one option', (t) => {
   t.false(greetings.get('help'));
   t.false(greetings.get('l'));
   t.false(greetings.get('hoge'));
-  t.is(greetings.replace_ex('hoge'), 'Cannot parse greeting file');
+  t.is(greetings.replaceEx('hoge'), 'Cannot parse greeting file');
 });
 
 test('select multi options', (t) => {
@@ -33,7 +33,7 @@ test('select multi options', (t) => {
 });
 
 test('check greeting list', (t) => {
-  const list = greetings.get_greetings();
+  const list = greetings.getGreetings();
   let list_length = 0;
   for (let key in list) {
     list_length++;
@@ -51,7 +51,7 @@ test('check greeting list', (t) => {
 });
 
 test('check dialect list', (t) => {
-  const list = greetings.get_dialects();
+  const list = greetings.getDialects();
 
   // error check
   t.is(list.length, 4);
@@ -63,7 +63,7 @@ test('check dialect list', (t) => {
 });
 
 test('check language list', (t) => {
-  const list = greetings.get_languages();
+  const list = greetings.getLanguages();
 
   // error check
   t.is(list.length, 2);
@@ -73,7 +73,7 @@ test('check language list', (t) => {
 });
 
 test('check surround list', (t) => {
-  const list = greetings.get_surrounds();
+  const list = greetings.getSurrounds();
 
   // error check
   t.is(list.length, 7);
