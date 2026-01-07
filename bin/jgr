@@ -42,6 +42,10 @@ const yargsConfig = yargs(process.argv.slice(2))
       alias: 'language',
       describe: 'Select language',
     },
+    v: {
+      alias: 'version',
+      describe: 'Show version',
+    },
     h: {
       alias: 'help',
       describe: 'Show help',
