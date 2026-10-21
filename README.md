@@ -1,7 +1,7 @@
 [![npm version](https://badge.fury.io/js/ja-greetings.svg)](https://badge.fury.io/js/ja-greetings)
 [![Build Status](https://travis-ci.org/k-kuwahara/ja-greetings.svg?branch=master)](https://travis-ci.org/k-kuwahara/ja-greetings)
 [![Code Climate](https://codeclimate.com/github/kkeeth/ja-greetings/badges/gpa.svg)](https://codeclimate.com/github/kkeeth/ja-greetings)
-![node](https://img.shields.io/badge/node-%3E%3D%2022.19.0-brightgreen.svg?style=social)
+![node](https://img.shields.io/badge/node-%3E%3D%2022.23.4-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 # ja-greetings
@@ -31,7 +31,7 @@ ___________
 $ npm i ja-greetings -g
 ```
 
-※The corresponding version of nodejs is version 6 or higher!
+※The minimum required Node.js version is 22.23.4.
 
 ## Usage
 
